@@ -12,10 +12,10 @@ const adminRoute = require("./router/admin-router");
 
 // Handling CORS
 const corsOptions = {
-    origin: ["*"], // Replace with your front-end domain
-    methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Only use if you're specifying an exact origin
+    origin: '*', // Allow all origins
+    credentials: true, // Enable credentials
+    allowedHeaders: '*', // Allow all headers
+    methods: '*', // Allow all 
 };
 app.use(cors(corsOptions));
 
