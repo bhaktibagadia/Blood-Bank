@@ -1,1 +1,1 @@
-export const api = "https://blood-bank-backend-working-all-time.vercel.app/"
+export const api = "https://blood-bank-backend-working-all-time.vercel.app"
