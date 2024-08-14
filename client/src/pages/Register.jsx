@@ -76,7 +76,7 @@ export const Register = () => {
                             </h1>
                             <br />
 
-                            <form onClick={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
                                 <div>
                                     <label htmlFor="username">Username:</label>
                                     <input type="text" name="username" placeholder="username" id="username" required autoComplete="off"
