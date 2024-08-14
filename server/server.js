@@ -21,6 +21,14 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 // middleware responsible to parse json data in request body
+
+app.get("/api", (req, res) => {
+    return res.status(200).json({ message: "Api working on api" });
+})
+
+app.get("/", (req, res) => {
+    return res.status(200).json({ message: "Api working on root" });
+})
 app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use("/api/form", contactRoute);
