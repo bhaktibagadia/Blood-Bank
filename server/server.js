@@ -12,10 +12,10 @@ const adminRoute = require("./router/admin-router");
 
 // Handling CORS
 const corsOptions = {
-    origin: '*', // Allow all origins
+    origin: 'https://blood-bank-eight-iota.vercel.app', // Specify the allowed origin
     credentials: true, // Enable credentials
-    allowedHeaders: '*', // Allow all headers
-    methods: '*', // Allow all 
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
 };
 app.use(cors(corsOptions));
 
