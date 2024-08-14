@@ -10,27 +10,25 @@ const contactRoute = require('./router/contact-router');
 const additionalRoute = require("./router/user-router");
 const adminRoute = require("./router/admin-router");
 
-
-
-// handling cors
+// Handling CORS
 const corsOptions = {
-    origin: "*",
-    method: "GET, POST, PUT, DELETE, PATCH, HEAD",
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: ["*"], // Replace with your front-end domain
+    methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Only use if you're specifying an exact origin
 };
 app.use(cors(corsOptions));
-// middleware responsible to parse json data in request body
 
-
+// Middleware to parse JSON data in the request body
+app.use(express.json());
 
 app.get("/", (req, res) => {
     return res.status(200).json({ message: "Jai Mata Di" });
-})
-app.use(express.json());
+});
+
 app.use('/api/auth', authRoute);
 app.use("/api/form", contactRoute);
-app.use('user/form', additionalRoute);
+app.use('/user/form', additionalRoute);  // Corrected path
 app.use("/api/data", serviceRoute);
 app.use("/api/admin", adminRoute);
 app.use(errorMiddleware);
@@ -38,6 +36,6 @@ app.use(errorMiddleware);
 const PORT = 8080;
 connectDb().then(() => {
     app.listen(PORT, () => {
-        console.log(`server at port ${PORT}`);
+        console.log(`Server running at port ${PORT}`);
     });
 });
